@@ -15,6 +15,10 @@ export class WhatsappService {
         console.log(error);
       });
   }
+  async closeSession() {
+    await this.client.close();
+  }
+
   async listeningOnMessage() {
     await this.client
       .onMessage((message) => console.log(message))

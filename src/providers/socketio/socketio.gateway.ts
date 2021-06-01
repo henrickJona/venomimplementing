@@ -17,6 +17,9 @@ export class SocketGateway implements OnGatewayConnection, OnGatewayDisconnect {
   @SubscribeMessage('chat')
   handleEvent(@MessageBody() data: string): void {
     this.whats.sendText('salve');
+    if (data === 'encerrar') {
+      this.whats.closeSession();
+    }
 
     console.log('gdgdgggggggggg', data);
   }
